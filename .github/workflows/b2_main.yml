@@ -1,0 +1,27 @@
+name : push events workflow
+
+on:
+  push:
+    branches:
+      - i191855_python-machine-learning-book-3rd-edition
+    
+jobs :
+  unit-testing :
+    runs-on: ubuntu-latest
+    
+    steps :
+      - name : Checkout Code
+        uses : actions/checkout@v2
+        
+      - name : Install Package
+        run  : pip install pytest numpy pandas
+        
+      - name: Install Dependencies
+      run:
+        python -m pip install --upgrade pip
+        pip install isort[requirements_deprecated_finder,pipfile_deprecated_finder]
+        pip install pylint
+
+      - name : Run Test
+        run  : pytest /ch08/additional_features/test_preprocessing.py
+        
