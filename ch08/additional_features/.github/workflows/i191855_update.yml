@@ -14,4 +14,4 @@ jobs :
         run  : pip install pytest numpy pandas
         
       - name : Run Test
-        run  : pytest i191855_i191787_A1_MLOPS/ch08/additional_features/test_preprocessing.py 
+        run  : pytest test_preprocessing.py 
